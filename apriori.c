@@ -305,6 +305,23 @@ ListaConjuntos *generar_candidatos(ListaConjuntos *L_anterior) {
     }
     int total = L_anterior->tamanio;
 
+    // Ordenar el array por elementos (necesario para que el join funcione)
+    int a, b;
+    for (a = 0; a < total - 1; a++) {
+        for (b = 0; b < total - a - 1; b++) {
+            int cmp = 0, e;
+            for (e = 0; e < k_menos_1 && cmp == 0; e++) {
+                if (arr[b]->elementos[e] < arr[b+1]->elementos[e]) cmp = -1;
+                else if (arr[b]->elementos[e] > arr[b+1]->elementos[e]) cmp = 1;
+            }
+            if (cmp > 0) {
+                ConjuntoItems *tmp = arr[b];
+                arr[b] = arr[b+1];
+                arr[b+1] = tmp;
+            }
+        }
+    }
+
     int i, j, m;
     for (i = 0; i < total; i++) {
         for (j = i + 1; j < total; j++) {
