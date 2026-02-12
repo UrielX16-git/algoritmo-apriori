@@ -1,0 +1,4 @@
+Leche, Pan, Paniales
+Cerveza, Pan
+Leche, Paniales, Cerveza, Huevos
+Leche, Pan, Paniales, Cerveza
